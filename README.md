@@ -6,7 +6,7 @@
 The Node-RED graphical wiring tool for Low-code programming of event-driven applications.
 Packaged as a Core20 based Ubuntu Snap, intended for multiple architectures.
 
-Listens on port 1880 and runs as as service in strict mode by default.
+Listens on port 1880 and runs as as service in strict mode by default. This version includes several palettes already for dashboard development.
 
 By default builds get automatically placed in the edge channel, and then promoted to the stable channel manually.
 
@@ -90,3 +90,28 @@ The base port can be set by the `$PORT` environment variable, or in the `setting
 #### Building
 
 To re-build locally, modify the snapcraft.yaml as required, and then execute `build_snap.sh`
+
+#### Included Palettes
+node-red-node-ping 
+node-red-node-random 
+node-red-configurable-ping 
+node-red-contrib-auth 
+node-red-contrib-bigssh 
+node-red-contrib-bigtimer 
+node-red-contrib-credentials 
+node-red-contrib-dotnsf-hash 
+node-red-contrib-email-out 
+node-red-contrib-eztimer 
+node-red-contrib-generate-password 
+node-red-contrib-influxdb 
+node-red-contrib-mssql-plus 
+node-red-contrib-os 
+node-red-contrib-ui-ping 
+node-red-contrib-xml 
+node-red-dashboard 
+node-red-node-email 
+node-red-node-mysql 
+@flowfuse/node-red-dashboard 
+@flowfuse/node-red-dashboard-2-ui-iframe 
+@flowfuse/node-red-dashboard-2-ui-led 
+@flowfuse/node-red-dashboard-2-user-addon
