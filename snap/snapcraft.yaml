@@ -4,7 +4,7 @@ summary: Low-code programming for event-driven applications
 description: Node-RED is a flow based programming application for wiring together hardware devices, APIs and online services in new and interesting ways. For more information see http://nodered.org
 confinement: strict
 grade: stable
-base: core24
+base: core22
 
 architectures:
   - build-on: amd64
@@ -45,11 +45,11 @@ parts:
   node: # We dump in a specific version of node/npm from upstream.
     plugin: dump
     source:
-      - on amd64: https://nodejs.org/dist/v20.18.3/node-v20.18.3-linux-x64.tar.gz
-      - on armhf: https://nodejs.org/dist/v20.18.3/node-v20.18.3-linux-armv7l.tar.gz
-      - on arm64: https://nodejs.org/dist/v20.18.3/node-v20.18.3-linux-arm64.tar.gz
-      - on s390x: https://nodejs.org/dist/v20.18.3/node-v20.18.3-linux-s390x.tar.gz
-      # - on ppc64el: https://nodejs.org/dist/v20.18.3/node-v20.18.3-linux-ppc64le.tar.gz
+      - on amd64: https://nodejs.org/dist/v20.17.0/node-v20.17.0-linux-x64.tar.gz
+      - on armhf: https://nodejs.org/dist/v20.17.0/node-v20.17.0-linux-armv7l.tar.gz
+      - on arm64: https://nodejs.org/dist/v20.17.0/node-v20.17.0-linux-arm64.tar.gz
+      - on s390x: https://nodejs.org/dist/v20.17.0/node-v20.17.0-linux-s390x.tar.gz
+      # - on ppc64el: https://nodejs.org/dist/v20.17.0/node-v20.17.0-linux-ppc64le.tar.gz
   node-red:
     after: [node]
     plugin: nil # We use the nil plugin so we can fully override the build with whatever we need to do
@@ -59,10 +59,10 @@ parts:
       - libatomic1
     override-build: | # Whatever steps needed to install node-red into the install folder, which gets incorporated into the snap
       PATH=$PATH:../npm/bin
-      apt-get install libatomic1
+      apt-get install libatomic1 --yes
       # npm config set unsafe-perm true
       # npm install --prefix $SNAPCRAFT_PART_INSTALL/lib
-      npm install --no-audit --no-fund --prefix $SNAPCRAFT_PART_INSTALL/lib node-red node-red-node-ping node-red-node-random node-red-node-serialport
+      npm install --no-audit --no-fund --prefix $SNAPCRAFT_PART_INSTALL/lib node-red node-red-node-ping node-red-node-random node-red-configurable-ping node-red-contrib-auth node-red-contrib-bigssh node-red-contrib-bigtimer node-red-contrib-credentials node-red-contrib-dotnsf-hash node-red-contrib-email-out node-red-contrib-eztimer node-red-contrib-generate-password node-red-contrib-influxdb node-red-contrib-mssql-plus node-red-contrib-os node-red-contrib-ui-ping node-red-contrib-xml node-red-dashboard node-red-node-email node-red-node-mysql @flowfuse/node-red-dashboard @flowfuse/node-red-dashboard-2-ui-iframe @flowfuse/node-red-dashboard-2-ui-led @flowfuse/node-red-dashboard-2-user-addon
       find $SNAPCRAFT_PART_INSTALL -type f -name '*.js.swp' -delete
       find $SNAPCRAFT_PART_INSTALL/lib/node_modules -type d -name test -prune -exec rm -rf {} \;
       find $SNAPCRAFT_PART_INSTALL/lib/node_modules -type d -name doc -prune -exec rm -rf {} \;
