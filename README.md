@@ -104,7 +104,7 @@ To re-build locally, modify the snapcraft.yaml as required, and then execute `bu
 - node-red-contrib-eztimer 
 - node-red-contrib-generate-password 
 - node-red-contrib-influxdb 
-- node-red-contrib-mssql-plus 
+- node-red-contrib-mssql-plus (newest version may need manual reinstallation via sudo su - method above)
 - node-red-contrib-os 
 - node-red-contrib-ui-ping 
 - node-red-contrib-xml 
@@ -115,3 +115,4 @@ To re-build locally, modify the snapcraft.yaml as required, and then execute `bu
 - @flowfuse/node-red-dashboard-2-ui-iframe 
 - @flowfuse/node-red-dashboard-2-ui-led 
 - @flowfuse/node-red-dashboard-2-user-addon
+- node-red-contrib-performance-monitor
