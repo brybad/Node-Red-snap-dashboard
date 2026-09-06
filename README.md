@@ -80,8 +80,8 @@ To install any extra nodes, the best option is to use the Manage Palette option 
 To install via the command line you can
 
     sudo su -
-    cd /var/snap/node-red/current/
-    node-red.npm i --unsafe-perm node-red-contrib-my-great-node-name
+    cd /var/snap/node-red-4-ui/current/
+    node-red-4-ui.npm i --unsafe-perm node-red-contrib-my-great-node-name
     snap restart node-red
 
 The base port can be set by the `$PORT` environment variable, or in the `settings.js` file.
